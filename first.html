@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='./assets/plugins/jquery-1.12.4.min.js'></script>
+	<script src='./assets/plugins/underscore.js'></script>
+	<script src='./assets/plugins/backbone-min.js'></script>
+	<script>
+	$(document).ready(function($) {
+		// (function($){
+			var ListView = Backbone.View.extend({
+
+				el: $('body'),
+
+				events: {
+					'click button#add' : 'addItem'
+				},
+
+				initialize: function(){
+
+					_.bindAll(this,'render','addItem');
+
+					// this.$button = $('#btn');
+					// console.log(this)
+					this.counter = 0;
+					this.render();
+				},
+
+
+
+				render : function(){
+					// $(this.el).append('<ul><li>helloworld</li></ul>');
+					$(this.el).append("<button id='add'>Add list item</button>");
+					$(this.el).append("<ul></ul>");
+				},
+
+				addItem : function(){
+					this.counter++;
+					$('ul').append("<li>hello world"+this.counter+"</li>");
+					console.log($('ul'))
+				}
+
+			});
+
+			console.log(Backbone,'Backbone')
+			var myView = new ListView();
+
+			// console.log(myView);
+		// })(jQuery)
+	});
+		
+	</script>
+	<style>
+		.fl{
+			float: left;
+		}
+		.box1{
+			background: red;
+			width: 100px;
+			height: 40px;
+		}
+		.box2{
+			background: green;
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div>福</div>
+	<!-- <button id='btn'></button> -->
+	<div class='fl box1'>我是浮动框1</div>
+	<div class=' box2'>我是浮动框2我能一直写下去么然后呢为什么不换到左边去</div>
+</body>
+</html>

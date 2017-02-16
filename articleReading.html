@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>articleReading</title>
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<script src='./assets/jquery-1.12.4.min.js'></script>
+	<style>
+		body{
+			font-size: 14px;
+		}
+		a{
+			text-decoration: none;
+		}
+		li{
+			list-style: none;
+		}
+		#articleReading .fl{
+			float: left;
+		}
+		#articleReading .fr{
+			float: right;
+		}
+		#articleReading{
+			font-size: 14px;
+		}
+		#articleReading header{
+			padding: 10px 16px;
+			background: #F8F8F8;
+			border-top: 1px solid #DEDEDE;
+			border-bottom: 1px solid #E9E9E9;
+			position: relative;
+		}
+		#articleReading header label{
+			font-weight: bold;
+			font-size: 14px;
+			font-family: sans-serif;
+		}
+		#articleReading header li{
+			margin-bottom: 8px;
+		}
+		#articleReading header li:last-child{
+			margin: 0;
+		}
+		#articleReading header li a{
+			font-size: 14px;
+			display: inline-block;
+			padding: 4px 8px;
+			border-radius: 25px;
+			text-decoration: none;
+			color: #333;
+		}
+		#articleReading header li a.current,#articleReading header li a:hover{
+			background: #06bb9c;
+			color: white;
+		}
+		#articleReading header .filter{
+			background: white;
+			border: 1px solid #DEDEDE;
+			padding: 6px;
+			font-size: 14px;
+			position: absolute;
+			right: 16px;
+			bottom: 0;
+			/*width: 80px;*/
+			border-bottom: 0px;
+		}
+		#articleReading .wrapper{
+			padding: 12px 10px;
+		}
+		#articleReading .sort{
+			margin-bottom: 12px;
+		}
+		#articleReading .sort a{
+			height: 24px;
+			line-height: 24px;
+			padding: 3px 20px;
+			border: 1px solid #C2C2C2;
+			color: #999;
+			float: left;
+			font-size: 14px;
+			font-family: sans-serif;
+		}
+		#articleReading .sort a:first-child{
+			border-right: 0px;
+		}
+		#articleReading .sort a:last-child{
+			border-left: 0px;
+		}
+		#articleReading .sort a.current{
+			background: #AEAEAE;
+			color: white;
+		}
+		#articleReading .sort a.current:hover{
+			color: white;
+		}
+		#articleReading .sort a:hover{
+			color: #06bb9c;
+		}
+		#articleReading #new-article{
+			height: 32px;
+			border: 1px solid #C2C2C2;
+			line-height: 30px;
+			padding: 0px 10px;
+			float: right;
+			width: 97px;
+			box-sizing:border-box;
+			text-align: right;
+		}
+		#articleReading #search{
+			float: right;
+			margin-right: 15px;
+		}
+		#articleReading #search-button{
+			float: right;
+			box-sizing:border-box;
+			height: 32px;
+			line-height: 30px;
+		}
+		#articleReading input{
+			width: 260px;
+			padding: 0px 12px;
+			box-sizing:border-box;
+			height: 32px;
+			border: 1px solid #C2C2C2;
+		}
+		#articleReading .wrapper-list{
+			border: 1px solid #E9E9E9;
+		}
+		#articleReading .list-box{
+			padding: 10px;
+			border-bottom: 1px solid #E9E9E9;
+		}
+		#articleReading .tool-bar{
+			padding: 5px 15px;
+			height: 36px;
+			background: #FCFCFC;
+			line-height: 36px;
+		}
+		#articleReading .tool-bar .quote{
+			display: inline-block;
+			height: 24px;
+			line-height: 24px;
+			border: 1px solid #05BB9B;
+			color: #05BB9B;
+			padding: 0 15px;
+			margin-top: 5px;
+		}
+		#articleReading .list-box dt{
+			font-weight: bold;
+			font-size: 16px;
+		}
+		#articleReading .list-box label{
+			color: #999;
+		}
+		#articleReading .list-box dd{
+			margin-top: 15px;
+		}
+		#articleReading .q-tool a{
+			color: #959595;
+		}
+		#articleReading .q-tool a:hover{
+			color: #06bb9c;
+		}
+		
+		
+		#articleReading .q-attr{
+			width: 440px;
+			line-height: 36px;
+		}
+		#articleReading .clf{
+			clear: both;
+		} 
+	</style>
+	
+</head>
+<body>
+	<div id="articleReading">
+		<!-- 筛选栏 -->
+		<header>
+			<!-- 收起筛选 -->
+			<div>
+				
+			</div>
+			<!-- 展开筛选 -->
+			<ul>
+				<li>
+					<label for="">学段 : </label>
+					<a href="" class='current'>不限</a>
+					<a href="">学前</a>
+					<a href="">小学</a>
+					<a href="">初中</a>
+					<a href="">高中</a>
+				</li>
+				<li>
+					<label for="">年级 : </label>
+					<a href="" class='current'>不限</a>
+					<a href="">一年级</a>
+					<a href="">二年级</a>
+					<a href="">三年级</a>
+				</li>
+				<li>
+					<label for="">文体 : </label>
+					<a href="" class='current'>不限</a>
+					<a href="">现代诗</a>
+					<a href="">古代诗</a>
+					<a href="">寓言</a>
+				</li>
+				<li>
+					<label for="">范围 : </label>
+					<a href="" class='current'>不限</a>
+					<a href="">公共资源</a>
+					<a href="">校本资源</a>
+				</li>
+			</ul>
+			<a class='filter'>收起筛选</a>
+		</header>
+		<div class='wrapper'>
+			<div class='sort'>
+				<a href="" class='current'>综合排序</a>
+				<a href="">时间</a>
+				<a href="">引用量</a>
+				<div id="new-article">新建阅读</div>
+				<div id='search'>
+					<input type="text" placeholder='作者、文章名、主题、出处、内容关键字'>
+					<div id='search-button'>
+						<i></i>
+						搜索
+					</div>
+				</div>
+				<div class='clf'></div>
+			</div>
+			
+			<div class='wrapper-list'>
+				<li>
+					<div class='list-box'>
+						<div></div>
+						<div>
+							<dl>
+								<dt>小吉普消防车</dt>
+								<dd>
+									<label for="">学段 : </label><span>小学</span>
+									<label for="">年级 : </label><span>不限</span>
+									<label for="">文体 : </label><span>记叙文</span>
+									<label for="">作者 : </label><span>朱自清</span>
+									<label for="">主题 : </label><span>尺有所长、寸有所短</span>
+								</dd>
+								<dd class='list-content'>在城市里,有一支消防队.这俩有装着长梯的消防车</dd>
+							</dl>
+
+						</div>
+					</div>
+					<div class="tool-bar">
+						<div class='q-attr fl'>
+							<span class='q-time'><i></i>2015/02/14</span>
+							<span class='q-author'><i></i>李萌</span>
+							<span class='q-quote'><i></i>引用 : <span style='color:#F9B38C'>112</span>次</span>
+						</div>
+						<div class='q-tool fl'>
+							<a href="javascript:void(0)">编辑</a>
+							<a href="javascript:void(0)">收藏</a>
+						</div>
+						<span class='quote fr'>引用</span>
+					</div>
+				</li>
+				<li>
+					<div class='list-box'>
+						<div></div>
+						<div>
+							<dl>
+								<dt>小吉普消防车</dt>
+								<dd>
+									<label for="">学段 : </label><span>小学</span>
+									<label for="">年级 : </label><span>不限</span>
+									<label for="">文体 : </label><span>记叙文</span>
+									<label for="">作者 : </label><span>朱自清</span>
+									<label for="">主题 : </label><span>尺有所长、寸有所短</span>
+								</dd>
+								<dd class='list-content'>在城市里,有一支消防队.这俩有装着长梯的消防车</dd>
+							</dl>
+
+						</div>
+					</div>
+					<div class="tool-bar">
+						<div class='q-attr fl'>
+							<span class='q-time'><i></i>2015/02/14</span>
+							<span class='q-author'><i></i>李萌</span>
+							<span class='q-quote'><i></i>引用 : <span style='color:#F9B38C'>112</span>次</span>
+						</div>
+						<div class='q-tool fl'>
+							<a href="javascript:void(0)">编辑</a>
+							<a href="javascript:void(0)">收藏</a>
+						</div>
+						<span class='quote fr'>引用</span>
+					</div>
+				</li>
+			</div>
+		</div>
+
+	</div>
+	<div class="dp">
+		<li>1111</li>
+		<li>1111</li>
+		<li>1111</li>
+		<li>1111</li>
+		<li>1111</li>
+	</div>
+	<script>
+	$('.dp li').click(function(event) {
+		
+		console.log($('.dp li').index(this));
+		console.log(this)
+	});
+		
+	</script>
+</body>
+</html>
